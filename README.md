@@ -111,5 +111,9 @@ node --test extension/tests/lib.test.mjs                      # alignment, norma
 cd asr-helper && python3 -m unittest discover -s tests         # helper API with a fake backend
 ```
 
-Status: MVP. Verified by automated tests of the pure logic and helper API; end-to-end behaviour in Chrome against a real Fiori system
-should be checked with the test list in [extension/README.md](extension/README.md).
+Status: MVP. Covered by automated tests of the pure logic and helper API, and used end to end by the author.
+Please report problems as GitHub issues; the manual test list is in [extension/README.md](extension/README.md).
+
+## License
+
+MIT – see [LICENSE](LICENSE). Whisper models are released by OpenAI under the MIT license; ffmpeg, mlx-whisper and whisper.cpp have their own licenses.
