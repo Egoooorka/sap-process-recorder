@@ -1,0 +1,9 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+# never commit tokens, recordings or exported data
+token
+*.webm
+*.zip

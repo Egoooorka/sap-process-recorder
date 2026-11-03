@@ -1,0 +1,7 @@
+# Paste into the extension's Speech Recognition settings -> Glossary.
+# "alias | alias => Canonical Term" forces a replacement; plain lines are reference terms (fuzzy-matched).
+фиори | фиорри | фиорий => Fiori
+лаунчпад => Launchpad
+Purchase Order
+Goods Receipt
+Material Document

@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="ui.css">
+<style>body{width:320px;padding:14px}</style>
+<h1>SAP Process Recorder</h1>
+
+<div id="status" class="status hidden">
+  <span class="dot"></span><b id="statusText">Recording</b>
+  <span class="grow"></span><span id="timer">00:00</span> · <span id="counter">0</span> actions
+</div>
+<div id="boundTab" class="muted hidden"></div>
+
+<label>Process name
+  <input id="name" type="text" placeholder="e.g. Create purchase order">
+</label>
+<label class="row"><input id="mic" type="checkbox"> Record microphone narration</label>
+<label>Screenshots
+  <select id="shotMode">
+    <option value="after">After each meaningful action</option>
+    <option value="beforeAfter">Before and after each action</option>
+    <option value="manual">Manual only (Alt+Shift+S)</option>
+  </select>
+</label>
+
+<button id="toggle" class="primary">Start recording</button>
+<button id="shot" disabled>Take screenshot now</button>
+<div class="row">
+  <button id="review" class="grow">Review &amp; export</button>
+  <button id="settings">Privacy settings</button>
+</div>
+<div id="msg" class="muted"></div>
+<script type="module" src="popup.js"></script>

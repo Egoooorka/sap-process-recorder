@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "SAP Process Recorder",
+  "version": "0.1.0",
+  "description": "Records a manual SAP Fiori process in one browser tab: screenshots, UI actions and microphone narration. Everything stays local.",
+  "minimum_chrome_version": "116",
+  "permissions": ["activeTab", "scripting", "storage", "webNavigation", "offscreen", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html", "default_title": "SAP Process Recorder" },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "commands": {
+    "manual-screenshot": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Take a manual screenshot of the recorded tab"
+    }
+  }
+}

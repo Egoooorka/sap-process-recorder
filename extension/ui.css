@@ -1,0 +1,22 @@
+*{box-sizing:border-box}
+body{font:13px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1d2433;margin:0}
+h1{font-size:15px;margin:0 0 10px}
+label{display:block;margin:8px 0;font-weight:600}
+label.row{display:flex;gap:6px;align-items:center;font-weight:400}
+input[type=text],input[type=number],select,textarea{width:100%;margin-top:3px;padding:6px;border:1px solid #b9c0cc;border-radius:5px;font:inherit}
+textarea{min-height:90px;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+button{padding:7px 10px;border:1px solid #b9c0cc;border-radius:5px;background:#f4f6f9;font:inherit;cursor:pointer}
+button:hover:not(:disabled){background:#e6eaf0}
+button:disabled{opacity:.5;cursor:default}
+button.primary{width:100%;margin:10px 0 6px;background:#0a6ed1;border-color:#0a6ed1;color:#fff;font-weight:600;padding:9px}
+button.primary.stop{background:#d93025;border-color:#d93025}
+button.danger{color:#d93025}
+#shot{width:100%;margin-bottom:6px}
+.row{display:flex;gap:6px;align-items:center}
+.grow{flex:1}
+.muted{color:#68707f;font-size:12px;margin-top:6px}
+.hidden{display:none!important}
+.status{display:flex;align-items:center;gap:6px;padding:8px;border-radius:6px;background:#fdecea;margin-bottom:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#d93025;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+.err{color:#d93025}

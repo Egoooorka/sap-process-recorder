@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>SAP Process Recorder – Review &amp; export</title>
+<link rel="stylesheet" href="ui.css">
+<style>
+  body{display:flex;height:100vh}
+  aside{width:260px;border-right:1px solid #d5dae2;overflow:auto;padding:12px;background:#f7f8fa}
+  main{flex:1;overflow:auto;padding:16px 22px}
+  .sess{padding:8px;border-radius:6px;cursor:pointer;margin-bottom:4px}
+  .sess:hover,.sess.sel{background:#e3edf9}
+  table{border-collapse:collapse;width:100%;margin-top:12px}
+  td,th{border-bottom:1px solid #e3e6ec;padding:6px 8px;vertical-align:top;text-align:left}
+  th{font-size:12px;color:#68707f}
+  .thumbs img{height:70px;border:1px solid #ccd;border-radius:3px;margin-right:4px;cursor:zoom-in}
+  .sub{color:#68707f;font-size:12px}
+  .tag{font-size:11px;background:#e9ecf1;border-radius:3px;padding:1px 5px}
+  .actions{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap;align-items:center}
+</style>
+<aside><h1>Recordings</h1><div id="list"></div></aside>
+<main id="main"><p class="muted">Select a recording.</p></main>
+<script type="module" src="review.js"></script>

@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>SAP Process Recorder – Privacy settings</title>
+<link rel="stylesheet" href="ui.css">
+<body style="max-width:640px;margin:30px auto;padding:0 16px">
+<h1>Privacy &amp; capture settings</h1>
+<p class="muted">Everything is stored locally. Password and hidden fields are always masked.</p>
+
+<label class="row"><input id="captureValues" type="checkbox"> Capture values of non-sensitive fields</label>
+<label class="row"><input id="redactScreenshots" type="checkbox"> Blur masked fields in screenshots</label>
+
+<label>Masked elements – CSS selectors, one per line
+  <textarea id="maskSelectors"></textarea>
+</label>
+<label>Masked field names – regular expression matched against label / name / id / placeholder
+  <input id="maskPatterns" type="text">
+</label>
+<div class="row">
+  <label class="grow">UI quiet time before screenshot (ms)<input id="quietMs" type="number" min="100" step="100"></label>
+  <label class="grow">Max wait for UI (ms)<input id="maxWaitMs" type="number" min="1000" step="500"></label>
+</div>
+<div class="row" style="margin-top:12px">
+  <button id="save" class="primary" style="width:auto;margin:0">Save</button>
+  <button id="reset">Reset to defaults</button>
+  <span id="msg" class="muted"></span>
+</div>
+<script type="module" src="options.js"></script>
+<hr style="margin:28px 0;border:0;border-top:1px solid #d5dae2">
+<h1 id="speech">Speech recognition (local)</h1>
+<p class="muted">Transcribes <code>narration.webm</code> on this Mac with Whisper via the local helper in <code>asr-helper/</code>.
+No audio leaves the machine. Language is never translated (task = transcribe).</p>
+
+<div class="row">
+  <label class="grow">Helper URL<input id="asrHelperUrl" type="text"></label>
+  <label class="grow">Token<input id="asrToken" type="password" placeholder="from the helper's console"></label>
+</div>
+<div class="row"><button id="asrTest">Test connection</button><span id="asrTestMsg" class="muted"></span></div>
+<pre id="asrInfo" class="muted" style="white-space:pre-wrap;margin:6px 0"></pre>
+
+<div class="row">
+  <label class="grow">Narration language
+    <select id="asrLanguage"><option value="ru">Russian</option><option value="en">English</option><option value="auto">Auto-detect</option></select></label>
+  <label class="grow">Model
+    <select id="asrModel"><option value="large-v3-turbo">Whisper Large V3 Turbo (default)</option><option value="large-v3">Whisper Large V3 (alternative)</option></select></label>
+  <label class="grow">Backend
+    <select id="asrBackend"><option value="auto">Auto (by CPU)</option><option value="mlx-whisper">mlx-whisper</option><option value="whisper.cpp">whisper.cpp</option></select></label>
+</div>
+<label>Mode</label>
+<label class="row"><input type="radio" name="asrMode" value="after"> Transcribe after recording</label>
+<label class="row" title="Planned enhancement"><input type="radio" name="asrMode" value="live" disabled> Live transcription (planned)</label>
+<label class="row"><input id="asrAutoStart" type="checkbox"> Start transcription automatically when a recording stops</label>
+<label class="row"><input id="asrUseHints" type="checkbox"> Give Whisper SAP UI labels and glossary terms as a spelling hint</label>
+<label class="row"><input id="asrConditionPrev" type="checkbox"> Condition on previous text (smoother, but may repeat on silence)</label>
+<label>Speech/event sync correction (ms, added to speech timestamps)<input id="asrSyncOffsetMs" type="number" step="100"></label>
+
+<h2 style="font-size:14px;margin-top:20px">Terminology (optional normalisation stage)</h2>
+<p class="muted">Raw transcripts are never changed. The normaliser only substitutes terms found in these references,
+lists every change and never touches numbers.</p>
+<label>Glossary – <code>alias | alias =&gt; Canonical Term</code> or one reference term per line
+  <textarea id="glossary" placeholder="фиори | фиорри =&gt; Fiori&#10;Purchase Order&#10;Launchpad"></textarea></label>
+<label>Solution Design text (paste or import; used for reference terms only)
+  <textarea id="solutionDesign"></textarea></label>
+<div class="row"><input id="sdFile" type="file" accept=".txt,.md,.csv,.json"><span id="sdInfo" class="muted"></span></div>
+<label>Fuzzy-match threshold (0.7–1.0)<input id="normThreshold" type="number" min="0.7" max="1" step="0.01"></label>
+<div class="row" style="margin-top:12px"><button id="asrSave" class="primary" style="width:auto;margin:0">Save speech settings</button><span id="asrMsg" class="muted"></span></div>
+<script type="module" src="asr-options.js"></script>
+
